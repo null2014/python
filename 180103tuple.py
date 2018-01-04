@@ -20,8 +20,5 @@ print(L[2][2])
 height = 1.75
 weight = 80.5
 BMI= weight/(height*height)
-if BMI < 18.5:
-    print 'light'
-elif BMI >=18.5 and <25:
-    print 'normal‘
-e l
+
+
