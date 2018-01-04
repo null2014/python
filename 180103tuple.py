@@ -14,7 +14,7 @@ print(L[1][1])
 #print lisa
 
 print(L[2][2])
-dgfgfg
+
 
 
 
