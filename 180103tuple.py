@@ -22,3 +22,24 @@ weight = 80.5
 BMI= weight/(height*height)
 
 
+L = ['Bart', 'Lisa', 'Adam']
+
+i = 0
+n=len(L)
+
+while i < n:
+    print('hello,%s',L[i])
+    i = i + 1
+
+
+
+sum = 0
+for x in range(101):
+    sum = sum + x
+print(sum)
+
+n1 = 255
+n2 = 1000
+s = hex(n2)
+print(s)
+
