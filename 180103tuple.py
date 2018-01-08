@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+import sys
 
+print (sys.version)
 L = [
     ['Apple', 'Google', 'Microsoft'],
     ['Java', 'Python', 'Ruby', 'PHP'],
@@ -66,5 +68,7 @@ def quadratic(a, b, c):
     pass
     
     
+
+#why i can't do this
 def person(name, age, *args, city, job):
-    print(name, age, args, city, job）
+    print(name, age, args, city, job)
