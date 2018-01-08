@@ -64,3 +64,7 @@ import math
 
 def quadratic(a, b, c):
     pass
+    
+    
+def person(name, age, *args, city, job):
+    print(name, age, args, city, job）
