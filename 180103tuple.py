@@ -16,10 +16,16 @@ print(L[1][1])
 print(L[2][2])
 
 
-
-
 height = 1.75
 weight = 80.5
 BMI= weight/(height*height)
 
+
+def person(name,age,**kw):
+    print('name:',name,'age:',age,'other:',kw)
+
+
+person('Michael',30)
+
+person('Bob',35,city='BJ')
 
