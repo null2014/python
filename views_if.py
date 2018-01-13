@@ -42,9 +42,17 @@ def get_event_list(request):
     name = request.GET.get("name","")
 
     if eid == '' and name == '':
-        result JsonResponse({'status':10021,'message':'query result is empty'})
+        result JsonResponse({'status':10021,'message':'parameter error'})
     
     if eid != '':
         event = {}
         try:
             result = Event.objects.get(id=eid)
+        except ObjectDoesNotExist:
+            return JsonResponse({'status':10022,'message':'query result is empty'})
+    else:
+        event['name'] =result.name
+        event['limit'] =result.limit
+        event['address'] =result.address
+        event['start_time'] =result.start_time
+        return JsonResponse({'status':10021,'message':'parameter error','data':event})
