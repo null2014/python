@@ -56,3 +56,19 @@ def get_event_list(request):
         event['address'] =result.address
         event['start_time'] =result.start_time
         return JsonResponse({'status':10021,'message':'parameter error','data':event})
+    
+
+    if name != '':
+        data = []
+        result =Event.objects.filter(name__contains=name)
+        if result:
+            for r in result:
+            event = {}
+            event['name'] =result.name
+            event['limit'] =result.limit
+            event['address'] =result.address
+            event['start_time'] =result.start_time
+            datas.append(event)
+        return JsonResponse({'status':200,'message':'add event success','data':datas})
+    else:
+        return JsonResponse({'status':10021,'message':'parameter error','data':event})
