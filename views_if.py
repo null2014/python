@@ -148,6 +148,56 @@ def get_guest_list(request):
             return JsonResponse({'status':10022,'message':'query result is empty'})
 
     if eid != '' and phone != '':
-        gu
+        guest = {}
 
+        try:
+            requests = Guest.objects.get(phone=phone,event_id=eid)
+        except ObjectDoesNotExist:
+            return JsonResponse({'status':10022,'message':'query result is empty'})
+        else:
+            guest['realname'] = results.realname
+            guest['phone'] = results.phone
+            guest['email'] = results.email
+            guest['sign'] = results.sign
+            return JsonResponse({'status':200,'message':'success','data',guest})
+
+#嘉宾签到接口
+def user_sign(request):
+    eid = request.get('eid','')
+    phone = request.POST.get('phone','')
+
+    if eid == '' or phone == '':
+        return JsonResponse({'status':10021,'message':'parameter error'})
+    
+    result = Event.objects.filter(id=eid)
+
+    if not result:
+        return JsonResponse({'status':10022,'message':'event status is not available'})
+
+
+    event_time = Event.objects.get(id=eid).start_time #发布会时间
+    etime = str(event_time).split(".")[0]
+    timeArray = time.strptime(etime,"%Y-%m-%d %H:%M:%S")
+    e_time = int(time.mktime(timeArray))
+
+    now_time = str(time.time())
+    ntime = now_time.split(".")[0]
+    n_time = int(ntime)
+
+    if n_time >= e_time:
+        return JsonResponse({'status':10024,'message':'event has started'})
+    result = Guest.objects.filter(phone=phone)
+    if not result:
+        return JsonResponse({'status':10025,'message':'user phone is null'})
+    result = Guest.objects.filter(event_id=eid,phone=phone)
+
+    if not request:
+        return JsonResponse({'status':10026,'message':'user did not participate the conference'})
+    result = Guest.objects.get(event_id=eid,phone=phone).sign
+
+    if result:
+        return JsonResponse({'status':10027,'message':'user has sign in'})
+    else:
+        Guest.objects.filter(event_id=eid,phone=phone).update(sign='1')
+        return JsonResponse(){'status':200,'message':'sign success'}
 
