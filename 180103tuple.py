@@ -70,5 +70,30 @@ def quadratic(a, b, c):
     
 
 #why i can't do this
-def person(name, age, *args, city, job):
-    print(name, age, args, city, job)
+#def person(name, age, *args, city, job):
+ #   print(name, age, args, city, job)
+
+
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+s = add_end(['1','2'])
+print s
+
+
+s2 = add_end()
+print s2
+
+s2 = add_end()
+print s2
+
+
+#遞歸
+def fact(n):
+    return fact_iter(n,1)
+
+def fact_iter(num,product):
+    if num == 1:
+        return product
+    return fact_iter(num -1,num * product)
