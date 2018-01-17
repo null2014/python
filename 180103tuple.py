@@ -81,7 +81,6 @@ def add_end(L=[]):
 s = add_end(['1','2'])
 print s
 
-
 s2 = add_end()
 print s2
 
@@ -97,3 +96,14 @@ def fact_iter(num,product):
     if num == 1:
         return product
     return fact_iter(num -1,num * product)
+
+#漢諾塔異動的例子
+
+
+
+
+#切片
+
+L = ['Micheal','Sarah','Tray','Bob','Jack']
+L[2:3]
+print L
