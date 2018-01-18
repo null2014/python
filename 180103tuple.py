@@ -18,10 +18,19 @@ print(L[1][1])
 print(L[2][2])
 
 
-
 height = 1.75
 weight = 80.5
 BMI= weight/(height*height)
+
+
+
+def person(name,age,**kw):
+    print('name:',name,'age:',age,'other:',kw)
+
+
+person('Michael',30)
+
+person('Bob',35,city='BJ')
 
 
 L = ['Bart', 'Lisa', 'Adam']
@@ -104,6 +113,52 @@ def fact_iter(num,product):
 
 #切片
 
-L = ['Micheal','Sarah','Tray','Bob','Jack']
-L[2:3]
-print L
+F = ['Micheal','Sarah','Tray','Bob','Jack']
+
+print ('F[0:3] = ',F[0:3])
+
+print ('F[2:3] = ',F[2:3])
+print ('F[-2:] = ',F[-2:])
+
+#利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法：
+s = [' ' ,'this', 'is', 'a', 'book','']
+def trim(s):
+    s[1:-1]
+    return s
+print s
+
+
+#迭代
+d = {'a':1,'b':2,'c':3}
+
+for key in d:
+    print(key)
+
+
+#send email
+
+import smtplib
+from email.mime.text import MIMEText
+from email.header import Header
+sender = 'dane.liu@huolala.cn'
+receivers = ['2289975022@qq.com']
+
+# 第三方 SMTP 服务
+mail_host="smtp.qq.com"  #设置服务器
+mail_user="dane.liu@huolala.cn"    #用户名
+mail_pass="HLLdane388"   #口令 
+ 
+ 
+
+message = MIMEText('test email')
+message['from'] = Header('just do it,study hard ,play hard')
+message['to'] = Header('study hard')
+subject = 'study hard'
+message['Subject'] = Header(subject,'utf-8')
+
+try:
+    smtpObj = smtplib.SMTP('localhost')
+    smtpObj.sendmail(sender, receivers, message.as_string())
+    print "邮件发送成功"
+except smtplib.SMTPException:
+    print "Error: 无法发送邮件"
