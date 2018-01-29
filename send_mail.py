@@ -13,7 +13,7 @@ receivers = ['2289975022@qq.com']
 # 第三方 SMTP 服务
 mail_host="smtp.qq.com"  #设置服务器
 mail_user="dane.liu@huolala.cn"    #用户名
-mail_pass="HLLdane388"   #口令 
+mail_pass="!!!"   #口令 
  
  
 #發送有連結的郵件
