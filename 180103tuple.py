@@ -140,13 +140,13 @@ for key in d:
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
-sender = 'dane.liu@huolala.cn'
-receivers = ['2289975022@qq.com']
+sender = ''
+receivers = ['xxx@qq.com']
 
 # 第三方 SMTP 服务
 mail_host="smtp.qq.com"  #设置服务器
-mail_user="dane.liu@huolala.cn"    #用户名
-mail_pass="HLLdane388"   #口令 
+mail_user=""    #用户名
+mail_pass=""   #口令 
  
  
 
