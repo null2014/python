@@ -157,7 +157,8 @@ subject = 'study hard'
 message['Subject'] = Header(subject,'utf-8')
 
 try:
-    smtpObj = smtplib.SMTP('localhost')
+    smtpObj = smtplib.SMTP_SSL('smtp.exmail.qq.com','465')
+    smtpObj.login(mail_user,mail_pass)
     smtpObj.sendmail(sender, receivers, message.as_string())
     print "邮件发送成功"
 except smtplib.SMTPException:
